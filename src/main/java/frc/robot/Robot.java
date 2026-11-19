@@ -16,13 +16,6 @@ public class Robot extends TimedRobot {
 
     private final RobotContainer m_robotContainer;
 
-    // Step 1: Create motor controller objects for the left and right motors
-    // Port numbers are just examples; replace them with the actual port numbers for your motors
-    private Spark leftMotor1 = new Spark(0);
-    private Spark leftMotor2 = new Spark(1);
-    private Spark rightMotor1 = new Spark(2);
-    private Spark rightMotor2 = new Spark(3);
-
     // Step 3: Create a joystick object to control the robot
     private CommandXboxController driverController = new CommandXboxController(0);
 
@@ -121,15 +114,6 @@ public class Robot extends TimedRobot {
         rightMotor1.set(-rightSpeed); // Set the speed of the first right motor (inverted)
         rightMotor2.set(-rightSpeed); // Set the speed of the second right motor (inverted)
         System.out.println("Teleop Left Speed: " + leftSpeed + ", \t\t Right Speed: " + rightSpeed); // Print the left and right speeds to the console for debugging
-
-        // Step 2: Set the speed of the left and right motors to move the robot forward
-        // The speed value can be adjusted as needed (0.5 is 50% power)
-        // Note: The right motors are set to negative because they are typically inverted in a differential drive setup
-        // However, the Robot will go forever. We need to tie the motors to a joystick or controller input to control the robot's movement. For now, this will just make the robot move forward at a constant speed.
-        // leftMotor1.set(0.5);
-        // leftMotor2.set(0.5);
-        // rightMotor1.set(-0.5);
-        // rightMotor2.set(-0.5);
     }
 
     @Override
