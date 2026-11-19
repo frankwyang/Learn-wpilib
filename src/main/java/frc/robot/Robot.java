@@ -79,7 +79,12 @@ public class Robot extends TimedRobot {
         // Note: The controller values range from -1.0 to 1.0, where -1.0 is full backward, 0 is neutral, and 1.0 is full forward.
         double speed = driverController.getLeftY() * 0.6; // Get the Y-axis value from the controller (forward/backward movement)
         double turn = driverController.getRightX() * 0.3; // Get the X-axis value from the controller (left/right turning)
-        
+
+         // Step 5: Calculate the speed for the left and right motors based on the controller input
+        // The left motors will move at a speed of (speed + turn), and the right motors will move at a speed of (speed - turn).
+        double leftSpeed = speed + turn; // Calculate the speed for the left motors
+        double rightSpeed = speed - turn; // Calculate the speed for the right motors
+
         // Step 2: Set the speed of the left and right motors to move the robot forward
         // The speed value can be adjusted as needed (0.5 is 50% power)
         // Note: The right motors are set to negative because they are typically inverted in a differential drive setup
