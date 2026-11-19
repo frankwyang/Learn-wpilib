@@ -73,6 +73,7 @@ public class Robot extends TimedRobot {
         double elapsedTime = time - startTimer;
 
         if (elapsedTime < 3.0) { // If the time is less than 3 seconds, move forward
+            System.out.println("Autonomous Elapsed time: " + elapsedTime); // Print the elapsed time to the console for debugging
             leftMotor1.set(0.6); // Set the speed of the first left motor
             leftMotor2.set(0.6); // Set the speed of the second left motor
             rightMotor1.set(-0.6); // Set the speed of the first right motor (inverted)
@@ -119,6 +120,7 @@ public class Robot extends TimedRobot {
         leftMotor2.set(leftSpeed); // Set the speed of the second left motor
         rightMotor1.set(-rightSpeed); // Set the speed of the first right motor (inverted)
         rightMotor2.set(-rightSpeed); // Set the speed of the second right motor (inverted)
+        System.out.println("Teleop Left Speed: " + leftSpeed + ", \t\t Right Speed: " + rightSpeed); // Print the left and right speeds to the console for debugging
 
         // Step 2: Set the speed of the left and right motors to move the robot forward
         // The speed value can be adjusted as needed (0.5 is 50% power)
