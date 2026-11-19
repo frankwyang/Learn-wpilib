@@ -26,6 +26,9 @@ public class Robot extends TimedRobot {
     // Step 3: Create a joystick object to control the robot
     private CommandXboxController driverController = new CommandXboxController(0);
 
+    // Step 8: Create a variable to store the start time of the autonomous mode
+    private double startTimer;
+
     public Robot() {
         m_robotContainer = new RobotContainer();
     }
