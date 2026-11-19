@@ -72,7 +72,15 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-         // Step 2: Set the speed of the left and right motors to move the robot forward
+        // Step 4: Read the controller input to control the robot's movement
+        // Get the controller values for forward/backward movement and turning
+        // The left controller Y-axis controls forward/backward movement, and the right controller X-axis controls turning.
+        // The values are scaled down to 60% for speed and 30% for turning to make the robot easier to control.
+        // Note: The controller values range from -1.0 to 1.0, where -1.0 is full backward, 0 is neutral, and 1.0 is full forward.
+        double speed = driverController.getLeftY() * 0.6; // Get the Y-axis value from the controller (forward/backward movement)
+        double turn = driverController.getRightX() * 0.3; // Get the X-axis value from the controller (left/right turning)
+        
+        // Step 2: Set the speed of the left and right motors to move the robot forward
         // The speed value can be adjusted as needed (0.5 is 50% power)
         // Note: The right motors are set to negative because they are typically inverted in a differential drive setup
         // However, the Robot will go forever. We need to tie the motors to a joystick or controller input to control the robot's movement. For now, this will just make the robot move forward at a constant speed.
