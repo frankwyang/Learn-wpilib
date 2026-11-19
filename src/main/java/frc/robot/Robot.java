@@ -85,14 +85,23 @@ public class Robot extends TimedRobot {
         double leftSpeed = speed + turn; // Calculate the speed for the left motors
         double rightSpeed = speed - turn; // Calculate the speed for the right motors
 
+        // Step 6: Set the speed of the left and right motors based on the calculated values
+        // The left motors are set to positive speed, and the right motors are set to negative speed because they are typically inverted in a differential drive setup
+        // Make sure to comment out code from Step 2 to avoid conflicting motor commands.
+        // This is the end of teleop of the robot. The robot will now respond to joystick input for movement and turning.
+        leftMotor1.set(leftSpeed); // Set the speed of the first left motor
+        leftMotor2.set(leftSpeed); // Set the speed of the second left motor
+        rightMotor1.set(-rightSpeed); // Set the speed of the first right motor (inverted)
+        rightMotor2.set(-rightSpeed); // Set the speed of the second right motor (inverted)
+
         // Step 2: Set the speed of the left and right motors to move the robot forward
         // The speed value can be adjusted as needed (0.5 is 50% power)
         // Note: The right motors are set to negative because they are typically inverted in a differential drive setup
         // However, the Robot will go forever. We need to tie the motors to a joystick or controller input to control the robot's movement. For now, this will just make the robot move forward at a constant speed.
-        leftMotor1.set(0.5);
-        leftMotor2.set(0.5);
-        rightMotor1.set(-0.5);
-        rightMotor2.set(-0.5);
+        // leftMotor1.set(0.5);
+        // leftMotor2.set(0.5);
+        // rightMotor1.set(-0.5);
+        // rightMotor2.set(-0.5);
     }
 
     @Override
