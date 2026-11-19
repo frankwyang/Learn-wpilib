@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
@@ -12,6 +13,13 @@ public class Robot extends TimedRobot {
     private Command m_autonomousCommand;
 
     private final RobotContainer m_robotContainer;
+
+    // Step 1: Create motor controller objects for the left and right motors
+    // Port numbers are just examples; replace them with the actual port numbers for your motors
+    private Spark leftMotor1 = new Spark(0);
+    private Spark leftMotor2 = new Spark(1);
+    private Spark rightMotor1 = new Spark(2);
+    private Spark rightMotor2 = new Spark(3);
 
     public Robot() {
         m_robotContainer = new RobotContainer();
