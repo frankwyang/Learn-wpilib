@@ -7,6 +7,7 @@ package frc.robot.commands;
 import java.util.function.Supplier;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.subsystems.Drivetrain;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
@@ -38,8 +39,8 @@ public class ArcadeDrive extends Command {
     @Override
     public void execute() {
         // Step 12-D: Get the real time forward and rotation values from the suppliers each time the command is run
-        double realTimeForward = forwardSupplier.get() * 0.6;
-        double realTimeRotation = rotationSupplier.get() * 0.3;
+        double realTimeForward = forwardSupplier.get() * Constants.XBOX_FORWARD_MULTIPLIER;
+        double realTimeRotation = rotationSupplier.get() * Constants.XBOX_ROTATE_MULTIPLIER;
         double leftSpeed = realTimeForward + realTimeRotation;
         double rightSpeed = realTimeForward - realTimeRotation;
         drivetrain.setMotorSpeeds(leftSpeed, rightSpeed);  

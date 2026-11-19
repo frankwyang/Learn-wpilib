@@ -7,14 +7,15 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Drivetrain extends SubsystemBase {
 
     // Step 10-A: Create motor controller objects for the left and right motors
-    private Spark leftMotor1 = new Spark(0);
-    private Spark leftMotor2 = new Spark(1);
-    private Spark rightMotor1 = new Spark(2);
-    private Spark rightMotor2 = new Spark(3);
+    private Spark leftMotor1 = new Spark(Constants.LEFT_MOTOR_1_PORT);
+    private Spark leftMotor2 = new Spark(Constants.LEFT_MOTOR_2_PORT);
+    private Spark rightMotor1 = new Spark(Constants.RIGHT_MOTOR_1_PORT);
+    private Spark rightMotor2 = new Spark(Constants.RIGHT_MOTOR_2_PORT);
 
     /** Creates a new Drivetrain. */
     public Drivetrain() {
