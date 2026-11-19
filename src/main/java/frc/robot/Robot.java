@@ -68,6 +68,14 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
+         // Step 2: Set the speed of the left and right motors to move the robot forward
+        // The speed value can be adjusted as needed (0.5 is 50% power)
+        // Note: The right motors are set to negative because they are typically inverted in a differential drive setup
+        // However, the Robot will go forever. We need to tie the motors to a joystick or controller input to control the robot's movement. For now, this will just make the robot move forward at a constant speed.
+        leftMotor1.set(0.5);
+        leftMotor2.set(0.5);
+        rightMotor1.set(-0.5);
+        rightMotor2.set(-0.5);
     }
 
     @Override
