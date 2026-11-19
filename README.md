@@ -12,3 +12,4 @@
 | Right Stick Y (Up / Down) | Axis 5 | `I` / `K` |
 | Buttons A / B / X / Y | Buttons 1–4 | `Z` / `X` / `C` / `V` |
 | D-Pad (POV 0) | POV 0 | Arrow Keys (incl. `Home`/`End`/`PgUp`/`PgDn` diagonals) |
+3. Add autonomous code to run robot forward for 3 seconds at 60% speed.
