@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -57,6 +58,21 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousPeriodic() {
+        // Step 7: We want the robot to move forward for 3 seconds at 60% speed and then stop. We can use a simple timer to achieve this.
+        // We still need to start the timer only when the autonomous mode starts, so we will 
+        // use the Timer class to get the current time and compare it to the start time.  
+        double time = Timer.getFPGATimestamp(); // Get the current time in seconds since the robot started
+        if (time < 3.0) { // If the time is less than 3 seconds, move forward
+            leftMotor1.set(0.6); // Set the speed of the first left motor
+            leftMotor2.set(0.6); // Set the speed of the second left motor
+            rightMotor1.set(-0.6); // Set the speed of the first right motor (inverted)
+            rightMotor2.set(-0.6); // Set the speed of the second right motor (inverted)
+        } else { // If the time is greater than or equal to 3 seconds, stop the robot
+            leftMotor1.set(0.0); // Stop the first left motor
+            leftMotor2.set(0.0); // Stop the second left motor
+            rightMotor1.set(0.0); // Stop the first right motor
+            rightMotor2.set(0.0); // Stop the second right motor
+        }
     }
 
     @Override
