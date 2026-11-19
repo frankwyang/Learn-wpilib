@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 public class Robot extends TimedRobot {
     private Command m_autonomousCommand;
@@ -20,6 +21,9 @@ public class Robot extends TimedRobot {
     private Spark leftMotor2 = new Spark(1);
     private Spark rightMotor1 = new Spark(2);
     private Spark rightMotor2 = new Spark(3);
+
+    // Step 3: Create a joystick object to control the robot
+    private CommandXboxController driverController = new CommandXboxController(0);
 
     public Robot() {
         m_robotContainer = new RobotContainer();
