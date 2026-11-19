@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
     public void autonomousInit() {
         // step 9: Initialize the start timer
         startTimer = Timer.getFPGATimestamp(); // Initialize the start timer
-        
+
         m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
         if (m_autonomousCommand != null) {
@@ -64,12 +64,15 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousPeriodic() {
-
         // Step 7: We want the robot to move forward for 3 seconds at 60% speed and then stop. We can use a simple timer to achieve this.
         // We still need to start the timer only when the autonomous mode starts, so we will 
         // use the Timer class to get the current time and compare it to the start time.  
         double time = Timer.getFPGATimestamp(); // Get the current time in seconds since the robot started
-        if (time < 3.0) { // If the time is less than 3 seconds, move forward
+
+        // step 10: Use the start timer to control the autonomous movement by subtracting the start time from the current time to get the elapsed time
+        double elapsedTime = time - startTimer;
+
+        if (elapsedTime < 3.0) { // If the time is less than 3 seconds, move forward
             leftMotor1.set(0.6); // Set the speed of the first left motor
             leftMotor2.set(0.6); // Set the speed of the second left motor
             rightMotor1.set(-0.6); // Set the speed of the first right motor (inverted)
