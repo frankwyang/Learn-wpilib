@@ -12,4 +12,10 @@
 | Right Stick Y (Up / Down) | Axis 5 | `I` / `K` |
 | Buttons A / B / X / Y | Buttons 1–4 | `Z` / `X` / `C` / `V` |
 | D-Pad (POV 0) | POV 0 | Arrow Keys (incl. `Home`/`End`/`PgUp`/`PgDn` diagonals) |
-3. Add autonomous code to run robot forward for 3 seconds at 60% speed.
+
+3. Add Drive Forward Time code to run robot forward for 3 seconds at 60% speed.
+4. Add ArcadeDrive command so the robot can be controlled by Xbox controller
+5. Move all specific values into Constants.java instead of having "magic numbers" throughout code
+6. Add Autonomous command to use DriveForwardTime during autonomous period
+7. Add Auto Mode chooser menu to choose different autonomous modes
+
